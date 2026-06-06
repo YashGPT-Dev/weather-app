@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AetherVibe | High-Tech Weather</title>
+    <!-- Google Fonts & FontAwesome for icons -->
+    <link href="https://googleapis.com" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cloudflare.com" />
+
+    <style>
+      /* CSS resets, variables, and glassmorphism styling go here */
+    </style>
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Sidebar: Search & Current Weather -->
+      <aside class="sidebar">
+        <div class="search-box">
+          <input
+            type="text"
+            id="city-input"
+            placeholder="Search city or zip..."
+          />
+          <button id="search-btn"><i class="fas fa-search"></i></button>
+          <button id="locate-btn"><i class="fas fa-location-dot"></i></button>
+        </div>
+
+        <div class="current-weather-display">
+          <!-- Dynamic Weather Icon -->
+          <div class="weather-icon-lg"></div>
+          <h1 class="temperature">--°C</h1>
+          <h2 class="weather-condition">---</h2>
+          <div class="location-name">-- , --</div>
+          <div class="date-time">---</div>
+        </div>
+      </aside>
+
+      <!-- Main Content: Forecasts and Advanced Metrics -->
+      <main class="main-content">
+        <header>
+          <h2>Holistic Weather Intelligence</h2>
+        </header>
+
+        <!-- Grid for Advanced Metrics -->
+        <section class="metrics-grid">
+          <div class="metric-card">
+            <i class="fas fa-wind"></i> <span>Wind Speed</span>
+            <h3 id="wind-speed">-- m/s</h3>
+          </div>
+          <div class="metric-card">
+            <i class="fas fa-tint"></i> <span>Humidity</span>
+            <h3 id="humidity">-- %</h3>
+          </div>
+          <div class="metric-card">
+            <i class="fas fa-sun"></i> <span>UV Index</span>
+            <h3 id="uv-index">--</h3>
+          </div>
+          <div class="metric-card">
+            <i class="fas fa-eye"></i> <span>Visibility</span>
+            <h3 id="visibility">-- km</h3>
+          </div>
+        </section>
+
+        <!-- Hourly Forecast Section -->
+        <section class="forecast-section">
+          <h3>Hourly Forecast</h3>
+          <div class="hourly-grid" id="hourly-container">
+            <!-- Hourly cards will be dynamically injected via JS -->
+          </div>
+        </section>
+
+        <!-- Daily Forecast Section -->
+        <section class="forecast-section">
+          <h3>5-Day Forecast</h3>
+          <div class="daily-list" id="daily-container">
+            <!-- Daily cards will be dynamically injected via JS -->
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      // JavaScript logic will go here
+      // 1. API Calls: fetch coordinates via GeoCoding and send to Weather API
+      // 2. DOM manipulation to update temperatures and swap CSS classes for weather effects
+      // 3. Event listeners for search and geolocation
+    </script>
+  </body>
+</html>
