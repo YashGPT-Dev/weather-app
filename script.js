@@ -32,6 +32,7 @@ async function getWeather(city) {
     document.querySelector(".location-name").textContent =
       `${data.name}, ${data.sys.country}`;
 
+    // Existing Metrics
     document.getElementById("wind-speed").textContent =
       `${data.wind.speed} m/s`;
 
@@ -40,7 +41,46 @@ async function getWeather(city) {
     document.getElementById("visibility").textContent =
       `${(data.visibility / 1000).toFixed(1)} km`;
 
-    document.getElementById("uv-index").textContent = "N/A";
+    // New Metrics
+    document.getElementById("feels-like").textContent =
+      `${Math.round(data.main.feels_like)} °C`;
+
+    document.getElementById("temp-max").textContent =
+      `${Math.round(data.main.temp_max)} °C`;
+
+    document.getElementById("temp-min").textContent =
+      `${Math.round(data.main.temp_min)} °C`;
+
+    document.getElementById("pressure").textContent =
+      `${data.main.pressure} hPa`;
+
+    document.getElementById("clouds").textContent = `${data.clouds.all}%`;
+
+    document.getElementById("wind-dir").textContent = `${data.wind.deg}°`;
+
+    // Sunrise
+    const sunrise = new Date(data.sys.sunrise * 1000);
+    document.getElementById("sunrise").textContent = sunrise.toLocaleTimeString(
+      [],
+      {
+        hour: "2-digit",
+        minute: "2-digit",
+      },
+    );
+
+    // Sunset
+    const sunset = new Date(data.sys.sunset * 1000);
+    document.getElementById("sunset").textContent = sunset.toLocaleTimeString(
+      [],
+      {
+        hour: "2-digit",
+        minute: "2-digit",
+      },
+    );
+
+    // Current Date & Time
+    document.querySelector(".date-time").textContent =
+      new Date().toLocaleString();
 
     updateIcon(data.weather[0].main);
   } catch (error) {
